@@ -58,16 +58,40 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation("io.ktor:ktor-client-okhttp:2.3.5")
+        }
+        iosMain.dependencies {
+            implementation("io.ktor:ktor-client-darwin:2.3.5")
         }
         commonMain.dependencies {
+            // Compose UI
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
+            // Lifecycle
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+
+            // Ktor Client
+            implementation("io.ktor:ktor-client-core:2.3.5")
+            implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
+
+            // Kotlinx Serialization
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+
+            // DateTime
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+
+            // Coroutines
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
+            // Dependency Injection
+            implementation("io.insert-koin:koin-core:3.5.3")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
