@@ -67,7 +67,7 @@ kotlin {
             // Compose UI
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation("org.jetbrains.compose.material3:material3:1.5.10")
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
