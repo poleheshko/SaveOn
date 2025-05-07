@@ -31,7 +31,8 @@ kotlin {
     }
     
     jvm("desktop")
-    
+
+    /*
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "composeApp"
@@ -51,6 +52,7 @@ kotlin {
         }
         binaries.executable()
     }
+     */
     
     sourceSets {
         val desktopMain by getting
@@ -67,7 +69,7 @@ kotlin {
             // Compose UI
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation("org.jetbrains.compose.material3:material3:1.5.10")
+            implementation("org.jetbrains.compose.material3:material3:1.7.3")
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -92,6 +94,15 @@ kotlin {
 
             // Dependency Injection
             implementation("io.insert-koin:koin-core:3.5.3")
+
+            // Voyager Navigation Core
+            implementation("cafe.adriel.voyager:voyager-navigator:1.1.0-beta02")
+
+            // For tabs (like bottom nav)
+            implementation("cafe.adriel.voyager:voyager-tab-navigator:1.1.0-beta02")
+
+            // Optional: if you want transitions
+            implementation("cafe.adriel.voyager:voyager-transitions:1.1.0-beta02")
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
